@@ -29,5 +29,10 @@ export class Components {
   @Column()
   componentUpdateUser: string;
   @Column()
+  versionCode: string;
+  @Column()
+  versionDate: Date;
+  @Column()
   componentStatus: boolean;
+
 }

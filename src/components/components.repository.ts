@@ -6,7 +6,7 @@ import { CreateComponentDto } from './dto/create-components-dto';
 
 @CustomRepository(Components)
 export class ComponentsRepository extends Repository<Components> {
-    async createComponent(createComponentDto: CreateComponentDto): Promise<Components> {
+    async createComponent(createComponentDto: CreateComponentDto, version: string): Promise<Components> {
         const { productID,
             componentName,
             componentType,
@@ -20,6 +20,8 @@ export class ComponentsRepository extends Repository<Components> {
         const crawlerLastCheck = new Date()
         const componentCreateDate = new Date()
         const componentUpdateDate = new Date()
+        const versionDate = new Date()
+        const versionCode = version
 
         const component = this.create({
             productID,
@@ -33,7 +35,9 @@ export class ComponentsRepository extends Repository<Components> {
             componentCreateUser,
             componentUpdateDate,
             componentUpdateUser,
-            componentStatus
+            componentStatus,
+            versionCode,
+            versionDate
         });
 
         await this.save(component);
