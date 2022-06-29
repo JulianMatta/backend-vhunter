@@ -31,7 +31,11 @@ export class ScrapperService {
   // view-source:https://web.flow.com.ar/auth/v2/revision
   // view-source:https://flow.com.ar/
   async WebPublic(URL: string): Promise<string> {
-    const browser = await puppeteer.launch({ headless: true });
+
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disabled-setupid-sandbox"]
+    });
     const page = await browser.newPage();
     await page.goto(`view-source:${URL}`, {
       waitUntil: 'networkidle2',
@@ -46,7 +50,10 @@ export class ScrapperService {
 
   // https://play.google.com/store/apps/details?id=ar.com.personal
   async PlayStoreGoogle(URL: string): Promise<string> {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disabled-setupid-sandbox"]
+    });
     const page = await browser.newPage();
     await page.goto(URL, {
       waitUntil: 'networkidle2',
