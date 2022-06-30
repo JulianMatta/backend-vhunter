@@ -56,7 +56,7 @@ export class ScrapperService {
       args: ["--no-sandbox", "--disabled-setupid-sandbox"]
     });
     const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(3000);//0
+    page.setDefaultNavigationTimeout(0);//0
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
