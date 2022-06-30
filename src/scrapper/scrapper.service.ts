@@ -56,12 +56,12 @@ export class ScrapperService {
       args: ["--no-sandbox", "--disabled-setupid-sandbox"]
     });
     const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(0);
+    page.setDefaultNavigationTimeout(3000);//0
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
     await page.click('.VMq4uf button');
-    await page.waitForTimeout(1000);//1000
+    await page.waitForTimeout(3000);//1000
     const results = await page.evaluate(() => {
       const dataVersion = document.querySelector('.reAt0')?.textContent;
       return dataVersion;
