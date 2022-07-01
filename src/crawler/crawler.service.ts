@@ -69,10 +69,17 @@ export class CrawlerService {
           );
           if (versionDB.length == 0 || newVersionCode != versionDB) {
             const p1 = this.versionService.create(newVersion);
-            const p2 = this.componentService.updateVersion(component.componentID, newVersionCode);
+            const p2 = this.componentService.updateVersion(
+              component.componentID,
+              newVersionCode,
+            );
             Promise.all([p1, p2])
-              .then(() => { this.logger.debug(`version web guardada`) })
-              .catch(() => { this.logger.debug(`error al guardar version web`) });
+              .then(() => {
+                this.logger.debug(`version web guardada`);
+              })
+              .catch(() => {
+                this.logger.debug(`error al guardar version web`);
+              });
           } else {
             this.logger.debug(`version web no guardada`);
           }
@@ -92,10 +99,17 @@ export class CrawlerService {
           );
           if (versionDB.length == 0 || newVersionCode != versionDB) {
             const p1 = this.versionService.create(newVersion);
-            const p2 = this.componentService.updateVersion(component.componentID, newVersionCode);
+            const p2 = this.componentService.updateVersion(
+              component.componentID,
+              newVersionCode,
+            );
             Promise.all([p1, p2])
-              .then(() => { this.logger.debug(`version playstore guardada`) })
-              .catch(() => { this.logger.debug(`error al guardar version playstore`) });
+              .then(() => {
+                this.logger.debug(`version playstore guardada`);
+              })
+              .catch(() => {
+                this.logger.debug(`error al guardar version playstore`);
+              });
           } else {
             this.logger.debug(`version playstore no guardada`);
           }
