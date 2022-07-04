@@ -24,11 +24,11 @@ import { VhunterController } from './vhunter/vhunter.controller';
     ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'mysql-81017-0.cloudclusters.net',
-      port: 18422,
-      username: 'admin',
-      password: '3SbH2jJT',
-      database: 'vhunter',
+      host: 'ec2-34-239-241-121.compute-1.amazonaws.com',
+      port: 5432,
+      username: 'mwgqugodjqgolb',
+      password: '1314a72e90bd34c262fc6641eb001c5a6093e454272c7632df80ead03f43292d',
+      database: 'd2r75rditjarsi',
       autoLoadEntities: true,
       entities: [Products, Components, Versions, User],
       synchronize: true,
@@ -36,4 +36,4 @@ import { VhunterController } from './vhunter/vhunter.controller';
   ],
   controllers: [VhunterController],
 })
-export class AppModule {}
+export class AppModule { }
