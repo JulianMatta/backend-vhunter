@@ -6,7 +6,7 @@ import { ScrapperService } from "./scrapper.service";
 export class ScrapperController {
   constructor(private scrapperService: ScrapperService) { }
   @Get('/')
-  selectorComponentType(@Query('versionURL') versionURL: string, @Query('componentType') componentType: string) {
+  selectorComponentType(@Query ('versionURL') versionURL: string, @Query ('componentType') componentType: string) {
     return this.scrapperService.selectorComponentType(versionURL, componentType);
   }
 }
