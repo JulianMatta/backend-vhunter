@@ -2,6 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-products-dto';
 import { Products } from './products.entity';
 import { ProductsService } from './products.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('products')
 export class ProductsController {
