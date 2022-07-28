@@ -9,6 +9,7 @@ export class ComponentsController {
     constructor(private componentService: ComponentsService, private scrapperService: ScrapperService) { }
 
     @Post()
+    @UseGuards(AuthGuard('jwt'))
     async create(@Body() createComponentDto: CreateComponentDto) {
         const version = await this.scrapperService.selectorComponentType(createComponentDto.versionURL, createComponentDto.componentType);
         return this.componentService.create(createComponentDto, version.toString());
