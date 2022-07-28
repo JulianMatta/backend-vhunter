@@ -3,6 +3,7 @@ import { ScrapperService } from 'src/scrapper/scrapper.service';
 import { ComponentsService } from './components.service';
 import { Components } from './dto/components.entity';
 import { CreateComponentDto } from './dto/create-components-dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('components')
 export class ComponentsController {
