@@ -7,6 +7,7 @@ import { ProductsService } from './products.service';
 export class ProductsController {
   constructor(private productsService: ProductsService) { }
   @Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
   }
